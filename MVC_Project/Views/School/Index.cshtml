@@ -1,0 +1,33 @@
+﻿@using MVC_Project.Models.VMs.SchoolVMs;
+@model List<SchoolListVM>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container col-lg-8">
+    <h1 class="text-center">Schools</h1>
+    <table class="table border">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">School Name</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (SchoolListVM school in Model)
+            {
+                <tr>
+                    <th>@school.Id</th>
+                    <td>@school.Name</td>
+                    <td><a asp-controller="School" asp-action="Update" asp-route-id="@school.Id" class="btn btn-primary">Update</a></td>
+                    <td><a asp-controller="School" asp-action="Delete" asp-route-id="@school.Id" class="btn btn-danger">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center"><a asp-asp-controller="School" asp-action="Create" class="btn btn-success">Add New School</a></div>
+</div>
+

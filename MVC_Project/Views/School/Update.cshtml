@@ -1,0 +1,22 @@
+﻿@using MVC_Project.Models.VMs.SchoolVMs;
+@model SchoolUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container col-lg-3">
+    <h1>Update</h1>
+    <form asp-controller="School" asp-action="Update">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th><label asp-for="Name"></label></th>
+                    <td><input type="text" asp-for="Name" /></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-warning">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
