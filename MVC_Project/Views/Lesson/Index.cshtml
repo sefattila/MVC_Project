@@ -1,0 +1,36 @@
+﻿@using MVC_Project.Models.Entities.Classes;
+@model List<Lesson>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container col-lg-8">
+    <h1 class="text-center">Lessons</h1>
+    <table class="table border">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Lesson Name</th>
+                <th scope="col">Credit</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Add Student</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Lesson lesson in Model)
+            {
+                <tr>
+                    <th>@lesson.Id</th>
+                    <td>@lesson.Name</td>
+                    <td>@lesson.Credit</td>
+                    <td><a asp-controller="Lesson" asp-action="Update" asp-route-id="@lesson.Id" class="btn btn-primary">Update</a></td>
+                    <td><a asp-controller="Lesson" asp-action="Delete" asp-route-id="@lesson.Id" class="btn btn-danger">Delete</a></td>
+                    <td><a asp-controller="Lesson" asp-action="AddStudent" asp-route-id="@lesson.Id" class="btn btn-warning">Add Student</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-center"><a asp-asp-controller="Lesson" asp-action="Create" class="btn btn-success">Add New Lesson</a></div>
+</div>
+

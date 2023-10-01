@@ -1,0 +1,31 @@
+﻿@using MVC_Project.Models.VMs.StudentVMs;
+@model StudentUpdateVM
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container col-lg-3">
+    <h1>Update</h1>
+    <form asp-controller="Student" asp-action="Update">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th><label asp-for="FullName"></label></th>
+                    <td><input type="text" asp-for="FullName" /></td>
+                </tr>
+                <tr>
+                    <th><label asp-for="ClassName"></label></th>
+                    <td><input type="text" asp-for="ClassName" /></td>
+                </tr>
+                <tr>
+                    <th><label asp-for="ClassName"></label></th>
+                    <td><select asp-items="@(new SelectList(Model.Schools,"Id","Name"))" asp-for="SchoolId" class="form-control"></select></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-warning">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+

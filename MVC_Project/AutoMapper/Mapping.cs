@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MVC_Project.Models.DTOs;
 using MVC_Project.Models.Entities.Classes;
+using MVC_Project.Models.VMs.LessonVMs;
 using MVC_Project.Models.VMs.SchoolVMs;
+using MVC_Project.Models.VMs.StudentVMs;
 
 namespace MVC_Project.AutoMapper
 {
@@ -13,6 +15,12 @@ namespace MVC_Project.AutoMapper
             CreateMap<School, SchoolUpdateVM>().ReverseMap();
             CreateMap<School,SchoolListVM>().ReverseMap();
             CreateMap<School,SchoolDeleteDTO>().ReverseMap();
+
+            CreateMap<Lesson,LessonCreateVM>().ReverseMap();
+            CreateMap<Lesson, LessonUpdateVM>().ReverseMap();
+
+            CreateMap<Student,StudentCreateVM>().ReverseMap();
+            CreateMap<Student, StudentUpdateVM>().ReverseMap();
         }
     }
 }
