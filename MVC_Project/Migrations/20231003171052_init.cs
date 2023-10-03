@@ -76,7 +76,7 @@ namespace MVC_Project.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ClassName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SchoolId = table.Column<int>(type: "int", nullable: true),
+                    SchoolId = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -89,7 +89,8 @@ namespace MVC_Project.Migrations
                         name: "FK_Students_Schools_SchoolId",
                         column: x => x.SchoolId,
                         principalTable: "Schools",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

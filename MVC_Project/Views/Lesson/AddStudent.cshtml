@@ -1,0 +1,83 @@
+﻿@model MVC_Project.Models.VMs.LessonVMs.LessonStudentVM
+
+@{
+    ViewData["Title"] = "AddStudent";
+}
+
+<div class="container col-lg-8">
+    <h3 class="text-center">Students</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassName)
+                </th>
+                <th>Ders Al</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StudentTakingLesson)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassName)
+                    </td>
+                    <td>
+                        <a asp-action="AddStudentLesson" class="btn btn-danger">Delete Student</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+    <br />
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ClassName)
+                </th>
+                <th>Ders Al</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.StudentNotTakingLesson)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ClassName)
+                    </td>
+                    <td>
+                        <a asp-action="AddStudentLesson" class="btn btn-success">Add Student</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

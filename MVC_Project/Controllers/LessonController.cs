@@ -6,18 +6,21 @@ using MVC_Project.Models.VMs.LessonVMs;
 using MVC_Project.Models.VMs.SchoolVMs;
 using MVC_Project.Services.LessonService;
 using MVC_Project.Services.SchoolService;
+using MVC_Project.Services.StudentService;
 
 namespace MVC_Project.Controllers
 {
     public class LessonController : Controller
     {
         private readonly ILessonService _lessonService;
+        private readonly IStudentService _studentService;
         private readonly IMapper _mapper;
 
-        public LessonController(ILessonService lessonService, IMapper mapper)
+        public LessonController(ILessonService lessonService, IMapper mapper, IStudentService studentService)
         {
             _lessonService = lessonService;
             _mapper = mapper;
+            _studentService = studentService;
         }
 
         public IActionResult Index()
@@ -66,6 +69,17 @@ namespace MVC_Project.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public IActionResult AddStudent(int id)
+        {
+            var taking=_studentService.GetAll().Where(x=>x.Lessons.Any(x=>x.Id == id)).ToList();
+            var notTaking=_studentService.GetAll().Where(x=>x.Lessons.All(x=>x.Id != id)).ToList();
+
+            LessonStudentVM lessonStudentVM=new LessonStudentVM();
+            lessonStudentVM.StudentTakingLesson = taking;
+            lessonStudentVM.StudentNotTakingLesson=notTaking;
+            return View(lessonStudentVM);
         }
     }
 }

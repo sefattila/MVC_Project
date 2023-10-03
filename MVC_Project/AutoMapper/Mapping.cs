@@ -22,6 +22,7 @@ namespace MVC_Project.AutoMapper
             CreateMap<Student, StudentCreateVM>().ForMember(dest => dest.Schools, opt => opt.Ignore()).ReverseMap();
             CreateMap<Student, StudentUpdateVM>().ForMember(dest => dest.Schools, opt => opt.Ignore()).ReverseMap();
             CreateMap<Student, StudentListVM>().ReverseMap();
+
         }
     }
 }
