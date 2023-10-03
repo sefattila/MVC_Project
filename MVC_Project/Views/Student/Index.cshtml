@@ -1,5 +1,5 @@
-﻿@using MVC_Project.Models.Entities.Classes;
-@model List<Student>
+﻿@using MVC_Project.Models.VMs.StudentVMs;
+@model IEnumerable<StudentListVM>
 @{
     ViewData["Title"] = "Index";
 }
@@ -15,11 +15,10 @@
                 <th scope="col">School Name</th>
                 <th scope="col">Update</th>
                 <th scope="col">Delete</th>
-                <th scope="col">Add Student</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (Student student in Model)
+            @foreach (StudentListVM student in Model)
             {
                 <tr>
                     <th>@student.Id</th>

@@ -11,16 +11,17 @@ namespace MVC_Project.AutoMapper
     {
         public Mapping()
         {
-            CreateMap<School,SchoolCreateVM>().ReverseMap();
+            CreateMap<School, SchoolCreateVM>().ReverseMap();
             CreateMap<School, SchoolUpdateVM>().ReverseMap();
-            CreateMap<School,SchoolListVM>().ReverseMap();
-            CreateMap<School,SchoolDeleteDTO>().ReverseMap();
+            CreateMap<School, SchoolListVM>().ReverseMap();
+            CreateMap<School, SchoolDeleteDTO>().ReverseMap();
 
-            CreateMap<Lesson,LessonCreateVM>().ReverseMap();
+            CreateMap<Lesson, LessonCreateVM>().ReverseMap();
             CreateMap<Lesson, LessonUpdateVM>().ReverseMap();
 
-            CreateMap<Student,StudentCreateVM>().ReverseMap();
-            CreateMap<Student, StudentUpdateVM>().ReverseMap();
+            CreateMap<Student, StudentCreateVM>().ForMember(dest => dest.Schools, opt => opt.Ignore()).ReverseMap();
+            CreateMap<Student, StudentUpdateVM>().ForMember(dest => dest.Schools, opt => opt.Ignore()).ReverseMap();
+            CreateMap<Student, StudentListVM>().ReverseMap();
         }
     }
 }

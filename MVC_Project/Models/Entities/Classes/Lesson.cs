@@ -8,7 +8,7 @@ namespace MVC_Project.Models.Entities.Classes
         public int Credit { get; set; }
 
         //nav prop  
-        public virtual List<School>? Schools { get; set; }
-        public virtual List<Student>? Students { get; set; }
+        public virtual IList<School>? Schools { get; set; }
+        public virtual IList<Student>? Students { get; set; }
     }
 }

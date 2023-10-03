@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Project.Models.VMs.StudentVMs
 {
-    public class StudentUpdateVM
+    public class StudentListVM
     {
         public int Id { get; set; }
         [DisplayName("Full Name")]
@@ -13,10 +13,7 @@ namespace MVC_Project.Models.VMs.StudentVMs
         [DisplayName("Class Name")]
         [Required]
         public string ClassName { get; set; }
-        [DisplayName("School Name")]
-        [Required]
         public int SchoolId { get; set; }
-        [DisplayName("School Name")]
-        public IList<School> Schools { get; set; }
+        public virtual School School { get; set; }
     }
 }

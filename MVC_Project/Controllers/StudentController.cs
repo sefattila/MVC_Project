@@ -24,7 +24,8 @@ namespace MVC_Project.Controllers
 
         public IActionResult Index()
         {
-            return View(_studentService.GetAll());
+            var student = _studentService.GetAll().Select(x => _mapper.Map<StudentListVM>(x));
+            return View(student);
         }
         public IActionResult Create()
         {
@@ -48,6 +49,7 @@ namespace MVC_Project.Controllers
         {
             var student = _studentService.GetDefaultById(id);
             var studentVM = _mapper.Map<StudentUpdateVM>(student);
+            studentVM.Schools=_schoolService.GetAll();
             return View(studentVM);
         }
         [HttpPost]

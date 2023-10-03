@@ -15,8 +15,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAutoMapper(typeof(Mapping));
 
 var conn = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn));
-builder.Services.AddDbContext<AppDbContext>(options => options.UseLazyLoadingProxies(true));
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(conn);
+    options.UseLazyLoadingProxies();
+});
 
 builder.Services.AddTransient<ILessonRepo, LessonRepo>();
 builder.Services.AddTransient<ISchoolRepo, SchoolRepo>();

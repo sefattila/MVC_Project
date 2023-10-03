@@ -15,7 +15,6 @@ namespace MVC_Project.Models.VMs.StudentVMs
         [DisplayName("School Name")]
         [Required]
         public int SchoolId { get; set; }
-        [DisplayName("School Name")]
-        public List<School>? Schools { get; set; }
+        public List<School> Schools { get; set; }
     }
 }

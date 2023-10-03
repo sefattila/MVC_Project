@@ -5,6 +5,7 @@ namespace MVC_Project.Models.VMs.LessonVMs
 {
     public class LessonUpdateVM
     {
+        public int Id { get; set; }
         [DisplayName("Lesson Name")]
         [Required]
         public string Name { get; set; }

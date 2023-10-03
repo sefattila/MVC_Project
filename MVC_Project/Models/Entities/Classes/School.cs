@@ -6,7 +6,7 @@ namespace MVC_Project.Models.Entities.Classes
     {
         public string Name { get; set; }
         //Nav Prop
-        public virtual List<Lesson>? Lessons { get; set; }
-        public virtual List<Student>? Students { get; set; }
+        public virtual IList<Lesson>? Lessons { get; set; }
+        public virtual IList<Student>? Students { get; set; }
     }
 }

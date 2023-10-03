@@ -17,7 +17,7 @@
                     <td><input type="text" asp-for="ClassName" /></td>
                 </tr>
                 <tr>
-                    <th><label asp-for="ClassName"></label></th>
+                    <th><label asp-for="SchoolId"></label></th>
                     <td><select asp-items="@(new SelectList(Model.Schools,"Id","Name"))" asp-for="SchoolId" class="form-control"></select></td>
                 </tr>
                 <tr>
